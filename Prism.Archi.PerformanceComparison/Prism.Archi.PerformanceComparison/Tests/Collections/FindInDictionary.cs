@@ -6,9 +6,8 @@
 
 namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
+    using System;
     using System.Linq;
-
-    using Prism.Archi.PerformanceComparison.Models;
 
     public class FindInDictionary : BaseFindInList
     {

@@ -1,11 +1,12 @@
 // -----------------------------------------------------------------------
-//  <copyright file="FindInDictionary.cs" company="CPH">
+//  <copyright file="FindInDictionaryWithDistinct.cs" company="CPH">
 //  Copyright (c) CPH. All rights reserved.
 //  </copyright>
 // -----------------------------------------------------------------------
 
 namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 

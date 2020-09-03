@@ -51,6 +51,9 @@
         <Compile Include="Tests\Collections\FindInDictionaryWithDistinct.cs" />
         <Compile Include="Tests\Collections\FindInList.cs" />
         <Compile Include="Tests\IPerformanceTest.cs" />
+        <Compile Include="Tests\Thread\AwaitMultipleTask.cs" />
+        <Compile Include="Tests\Thread\BaseTaskTest.cs" />
+        <Compile Include="Tests\Thread\WaitAllMultipleTasks.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

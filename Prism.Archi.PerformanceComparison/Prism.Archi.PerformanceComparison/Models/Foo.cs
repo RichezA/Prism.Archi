@@ -6,6 +6,9 @@
 
 namespace Prism.Archi.PerformanceComparison.Models
 {
+    using System;
+    using System.Linq;
+
     public class Foo
     {
         public string Id { get; set; }

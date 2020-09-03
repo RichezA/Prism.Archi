@@ -6,7 +6,7 @@
 
 namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
-    using System.Collections.Generic;
+    using System;
     using System.Linq;
 
     public class FindInList : BaseFindInList
