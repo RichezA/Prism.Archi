@@ -15,6 +15,11 @@ Here are two samples of code used to run 5 async method at the same time and get
   
 ==> If you want to run code in // you have to start the task and, later, await the task ! There is no magic :)
 
+## await VS WhenAll
+When you use await, if there is an exception in on task, the process will stop and hide potential other exception.
+With using WhenAll, all exceptions are aggregated.
+
+
 ### Remarks
 *The asynchronous method does not create new thread to run the method. The asynchronous methods runs on the current synchronization context and uses the time on the calling thread. It is beneficial when there is a blocking operations like calling a web service, reading a file, reading a website page that blocks current thread.*
 
@@ -48,5 +53,17 @@ ThisDoesNotWorkInParallel
 00:00:01.9167950 - Call 3 done : 1157
 00:00:01.9931847 - Call 4 done : 1990
 00:00:01.9936629 - Call 5 done : 1522
+
+===> This code does work // and keep all exceptions
+00:00:00.0000418 - Call 1 started
+00:00:00.0003239 - Call 2 started
+00:00:00.0005764 - Call 3 started
+00:00:00.0009771 - Call 4 started
+00:00:00.0086499 - Call 5 started
+00:00:01.8467072 - Call 1 done : 1696
+00:00:01.8471219 - Call 2 done : 1251
+00:00:01.8482321 - Call 3 done : 1817
+00:00:01.8486171 - Call 4 done : 1460
+00:00:01.8492891 - Call 5 done : 1827
 
 ```

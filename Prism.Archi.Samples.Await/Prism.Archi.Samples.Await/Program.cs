@@ -17,6 +17,7 @@ namespace Prism.Archi.Samples.Await
         {
             await ThisDoesNotWorkInParallel();
             await ThisWorkInParallel();
+            await ThisWorkInParallelAndKeepExceptions();
         }
 
         public static async Task<TimeSpan> WaitRandomTime()
@@ -87,6 +88,30 @@ namespace Prism.Archi.Samples.Await
             Log(timer, $"Call 4 done : {elapsed4.TotalMilliseconds}");
             var elapsed5 = await task5;
             Log(timer, $"Call 5 done : {elapsed5.TotalMilliseconds}");
+        }
+
+        private static async Task ThisWorkInParallelAndKeepExceptions()
+        {
+            Console.WriteLine("===> This code does work // and keep all exceptions");
+            var timer = new Stopwatch();
+            timer.Start();
+
+            var task1 = WaitRandomTime();
+            Log(timer, "Call 1 started");
+            var task2 = WaitRandomTime();
+            Log(timer, "Call 2 started");
+            var task3 = WaitRandomTime();
+            Log(timer, "Call 3 started");
+            var task4 = WaitRandomTime();
+            Log(timer, "Call 4 started");
+            var task5 = WaitRandomTime();
+            Log(timer, "Call 5 started");
+
+            var elapseds = await Task.WhenAll(task1, task2, task3, task4, task5);
+            for (int i = 0, c = elapseds.Length; i < c; i++)
+            {
+                Log(timer, $"Call {i + 1} done : {elapseds[i].TotalMilliseconds}");
+            }
         }
     }
 }
