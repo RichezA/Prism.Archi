@@ -13,7 +13,8 @@ Here are two samples of code used to run 5 async method at the same time and get
   * All tasks are initiated without await, and they start directly.
   * When the result is required, the await is used to make the main thread wait for the result.
   
-==> If you want to run code in // you have to start the task and, later, await the task ! There is no magic :)
+==> If you want to run code in // you have to start the task and, later, wait for the task ! There is no magic :)
+The best way to  wait is to use WhenAll (see below).
 
 ### await VS WhenAll
 When you use await, if there is an exception in on task, the process will stop and hide potential other exception.
@@ -54,7 +55,7 @@ ThisDoesNotWorkInParallel
 00:00:01.9931847 - Call 4 done : 1990
 00:00:01.9936629 - Call 5 done : 1522
 
-===> This code does work // and keep all exceptions
+===> This code does work // and keep all exceptions (optimal)
 00:00:00.0000418 - Call 1 started
 00:00:00.0003239 - Call 2 started
 00:00:00.0005764 - Call 3 started

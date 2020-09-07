@@ -92,7 +92,7 @@ namespace Prism.Archi.Samples.Await
 
         private static async Task ThisWorkInParallelAndKeepExceptions()
         {
-            Console.WriteLine("===> This code does work // and keep all exceptions");
+            Console.WriteLine("===> This code does work // and keep all exceptions (optimal)");
             var timer = new Stopwatch();
             timer.Start();
 
